@@ -1,5 +1,7 @@
 databases:
-  - name: postgres
+  - name: postgres_45uf
+    databaseName: postgres_45uf
+    user: postgres_45uf_user
     ipAllowList: []
 
 services:
@@ -11,7 +13,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: postgres_45uf
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
