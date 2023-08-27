@@ -2,14 +2,13 @@ databases:
   - name: postgres_45uf
     databaseName: postgres_45uf
     user: postgres_45uf_user
-    ipAllowList: []
 
 services:
   - type: web
-    name: rails
-    env: ruby
+    name: venom-host71
+    runtime: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: rails exec rails s
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -17,8 +16,3 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction

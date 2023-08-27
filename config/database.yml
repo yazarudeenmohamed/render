@@ -80,8 +80,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
-  database: postgres_45uf
-  username: postgres_45uf_user
-  password: OerP8OzhctypD6VdZWidS8DM77SAB9uk
+  url: <%= ENV['DATABASE_URL'] %>
